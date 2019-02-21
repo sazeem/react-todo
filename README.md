@@ -1,5 +1,6 @@
-## react-todo
+# react-todo
 
-#instructions
+## instructions
+
 1. `npm install`
 2. `npm start`
