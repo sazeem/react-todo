@@ -1,7 +1,7 @@
 import './App.css';
 import logo from './logo.svg';
 import React, { Component } from 'react';
-import TasksList from './components/tasksTable'
+import TasksList from './functions/tasksTable'
 import  { Action, ClearButton } from './functions/actions'
 
 class App extends Component {
