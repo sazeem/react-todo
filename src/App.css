@@ -1,0 +1,114 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 10vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.box {
+  width:400px;
+  position: relative;
+  border:1px solid #000;
+  border-radius: 15px;
+  background-color: cadetblue;
+  margin-top: 15px;  
+}
+
+.add-button {
+  border-radius: 0px 10px 10px 0px;
+  cursor: pointer;
+  background-color: white; /* Green */
+  border: none;
+  color: black;
+  padding: 11px;  
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  font-weight: bold;
+  transition-duration: 0.8s;
+  margin-right: 25px;
+}
+
+.input-box {
+  width: 50%;
+  padding: 10px 20px;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-size: 15px;
+  margin: 4px 0;
+  color: white;
+  box-sizing: border-box;
+  background-color: #282c34;
+  border-radius: 10px 0px 0px 10px; 
+}
+
+.search-box {
+  width: 30%;
+  padding: 10px 20px;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-size: 15px;
+  margin: 4px 0;
+  color: white;
+  box-sizing: border-box;
+  background-color: #282c34;
+  border-radius: 10px;
+}
+
+.clear-button {
+  border-radius: 15px;
+  cursor: pointer;
+  background-color: steelblue; /* Green */
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+}
+
+.clear-button:hover {
+  background-color: white;
+  color: black;
+}
+
+.heading {
+  color: #282c34;
+}
+
+span {
+  cursor: pointer;  
+}
+
+ul {
+  list-style-type: none;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
