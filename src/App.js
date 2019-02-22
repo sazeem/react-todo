@@ -1,8 +1,8 @@
 import './App.css';
 import logo from './logo.svg';
 import React, { Component } from 'react';
-import TasksList from './functions/tasksTable'
-import  { Action, ClearButton } from './functions/actions'
+import TasksList from './components/tasksTable'
+import  { Action, ClearButton } from './components/actions'
 
 class App extends Component {
   
@@ -12,14 +12,10 @@ class App extends Component {
       data: [],
       initialData: [],
       value: true
-    };    
-    this.addItem = this.addItem.bind(this);
-    this.searchItem = this.searchItem.bind(this);
-    this.clearList = this.clearList.bind(this);
-    this.removeItem = this.removeItem.bind(this);
+    };
   }
 
-  addItem(item) {
+  addItem = (item) => {
     if (!item) {
       return this.setState({value: false})
     }
@@ -34,7 +30,7 @@ class App extends Component {
     });
   }
 
-  removeItem(id) {
+  removeItem = (id) => {
     let updatedData = this.state.data;
     updatedData = updatedData.filter(item => item.id !== id);
     this.setState({ 
@@ -44,7 +40,7 @@ class App extends Component {
     });
   }
 
-  searchItem(item) {
+  searchItem = (item) => {
     if(!item){
       return this.setState({
         data: this.state.initialData,
@@ -61,7 +57,7 @@ class App extends Component {
     });
   }
 
-  clearList() {
+  clearList = () => {
     this.setState({
       data: [],
       initialData: [],
@@ -70,35 +66,41 @@ class App extends Component {
   }
 
   render() {
+    const addItem = this.addItem;
+    const clearList = this.clearList;
+    const searchItem = this.searchItem;
+    const removeItem = this.removeItem;
+    const {data, initialData} = this.state;
+
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+      <div className = "App">
+        <header className = "App-header">
+          <img src={logo} className = "App-logo" alt = "logo" />
           <p>
             Simple React To-do App
           </p>
           <Action 
-            addItem = {this.addItem} 
-            searchItem = {this.searchItem}
-            dataLength = {this.state.data.length}
-            listLength = {this.state.initialData.length}
+            addItem = { addItem }
+            searchItem = { searchItem }
+            dataLength = { data.length }
+            listLength = { initialData.length }
           />
           {
-            this.state.data.length ?  <div className="box">
+            Boolean(data.length) &&  <div className="box">
               <TasksList 
-                tasks={this.state.data} 
-                removeItem={this.removeItem} 
+                tasks = { data } 
+                removeItem = { removeItem }
               />
-            </div> : null
+            </div>
           }
           {
-            this.state.data.length ? <div className="clear">
+            Boolean( data.length ) && <div className="clear">
               <ClearButton
-                clearList={this.clearList}
+                clearList = { clearList }
               />
-            </div> : null
+            </div>
           }
-        </header>        
+        </header>
       </div>
     );
   }

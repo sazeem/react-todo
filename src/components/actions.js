@@ -3,6 +3,17 @@ import React from 'react';
 const AddButton = ({addItem}) => {
   let addInput;
 
+  const handleClick = () => {
+    addItem(addInput.value); 
+    addInput.value = ''
+  };
+
+  const handleKeyPress = (target) => {
+    if(target.charCode==13){
+      handleClick();
+    }
+  }
+
   return ([
     <input 
       type="text" 
@@ -11,19 +22,11 @@ const AddButton = ({addItem}) => {
       ref = { (value) => {
         addInput = value
       }}
-      onKeyPress = {(target) => {
-        if(target.charCode==13){
-          addItem(addInput.value); 
-          addInput.value = ''
-        }
-      }}
+      onKeyPress = { handleKeyPress }
     />,
     <button
       className="add-button"
-      onClick={() => {
-        addItem(addInput.value); 
-        addInput.value = ''
-      }}
+      onClick={ handleClick }
     >
       Add
     </button>
@@ -31,21 +34,29 @@ const AddButton = ({addItem}) => {
 }
 
 const SearchBox = ({searchItem}) => {
+  const handleChange = (input) => {
+    searchItem(input.target.value)
+  }
+
   return (
     <input 
       type="text" 
       className="search-box"
       placeholder="Filter"
-      onChange={(input) => searchItem(input.target.value)}
+      onChange={ handleChange }
     />
   )
 }
 
 export const ClearButton = ({clearList}) => {
+  const handleClick = () => {
+    clearList()
+  }
+
   return (
     <button
       className="clear-button"
-      onClick={() => {clearList()}}
+      onClick={ handleClick }
     >
       Clear
     </button>

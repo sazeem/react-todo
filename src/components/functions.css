@@ -1,0 +1,19 @@
+table {
+  border-collapse: collapse;  
+}
+
+tr { 
+  border: solid;
+  border-width: 2px 0;
+  height: 60px;  
+}
+
+tr:first-child {
+  padding-top: 10px;
+  border-top: none;
+}
+
+tr:last-child {
+  border-top:none;
+  border-bottom: none;
+}
