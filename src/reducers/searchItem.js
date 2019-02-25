@@ -1,4 +1,4 @@
-const searchItems = (state = '', action) => {
+const searchItem = (state = '', action) => {
 	switch (action.type) {
     case 'SEARCH_ITEM':
       if (!action.text) {
@@ -10,4 +10,4 @@ const searchItems = (state = '', action) => {
 	}
 }
 
-export default searchItems;
+export default searchItem;

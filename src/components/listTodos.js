@@ -31,7 +31,17 @@ const Task = ({task, removeItem}) => {
 
 const TasksList = ({tasks, searchItem, removeItem}) => {  
   if (!tasks.length) {
-    return (<h4>Todo list is empty</h4>)
+    return (
+      <table width="100%">
+        <tbody>
+          <tr className="heading">
+            <td>
+              Todo list is empty
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    );
   }
 
   const taskList = filterItems({tasks, searchItem}).map(item => (
@@ -40,8 +50,19 @@ const TasksList = ({tasks, searchItem, removeItem}) => {
       task = {item} 
       removeItem = { removeItem }
     />
-  ))
-  return !taskList.length ? (<h4>No match found</h4>) : (
+  ));
+
+  return !taskList.length ? (
+    <table width="100%">
+      <tbody>
+        <tr>
+          <td className="heading">
+            Not found!
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    ) : (
     <table width="100%">
       <tbody>
         <tr className="heading">

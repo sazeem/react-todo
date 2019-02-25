@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
-import listItems from './listItems'
-import searchItems from './searchItems'
+import tasks from './tasks'
+import searchItem from './searchItem'
 
 export default combineReducers({
-  listItems,
-  searchItems
+  tasks,
+  searchItem
 })
